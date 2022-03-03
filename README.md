@@ -7,26 +7,22 @@ We use [dgSPARSE-Wrapper](https://github.com/dgSPARSE/dgSPARSE-Wrapper) to compl
 To run our test, first clone our project by
 
 ```
-git clone --recursive git@github.com:fishmingyu/GNN-dgsparse-accleration.git
+git clone git@github.com:fishmingyu/GNN-dgsparse-accleration.git
 ```
-
-### gespmm
-
-To test with gespmm, you could use the dgsparse.so in the gespmm directory.
-Since the function name in our dynamic library is spmm_cuda, there is no need to change the code in dgSPARSE-Wrapper.
 
 ### spmmul
 
 To test with spmmul, you could use the dgsparse.so in the spmmul directory. Then you could follow the README written in dgSPARSE-Wrapper.
 
 ```bash
-mv spmmul/dgsparse.so dgSPRASE-Wrapper
+mv spmmul/dgsparse.so dgSPARSE-Wrapper/lib/
 ```
 
 We implement four algorithms named spmm_cuda_alg0, spmm_cuda_alg1, spmm_cuda_alg2 and spmm_cuda_alg3 respectively.
 Thus, you have to change the name of the function in the following code, which is located in [here](https://github.com/dgSPARSE/dgSPARSE-Wrapper/blob/d1aa92db1598487a13099388251f522b51cee0f0/src/cuda-11.1/sparse_main.cc#L12079) for CUDA 11.1 version.
 
 ```
+e.g.
 LOAD_SPARSE_SYMBOL_FOR_ONCE(DGSPARSE_LIB, spmm_cuda);
 -->
 LOAD_SPARSE_SYMBOL_FOR_ONCE(DGSPARSE_LIB, spmm_cuda_algx);
