@@ -1,0 +1,3 @@
+[submodule "dgSPARSE-Wrapper"]
+	path = dgSPARSE-Wrapper
+	url = git@github.com:dgSPARSE/dgSPARSE-Wrapper.git
