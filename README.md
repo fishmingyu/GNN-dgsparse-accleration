@@ -15,6 +15,7 @@ git clone git@github.com:fishmingyu/GNN-dgsparse-accleration.git
 To test with spmmul, you could use the dgsparse.so in the spmmul directory. Then you could follow the README written in dgSPARSE-Wrapper.
 
 ```bash
+mkdir -p dgSPARSE-Wrapper/lib/
 mv spmmul/dgsparse.so dgSPARSE-Wrapper/lib/
 ```
 
